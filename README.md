@@ -34,6 +34,7 @@ BMI 585 - Final Project
 ```
 devtools::install_github("hmumme/bmi585hmumme")
 install.packages("tidyverse")
+install.packages("dplyr")
 ```
 ### Demo:
 Example uses for each function in the package are located in examples.Rmd or examples.html
