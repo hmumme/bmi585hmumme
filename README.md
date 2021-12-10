@@ -36,6 +36,6 @@ devtools::install_github("hmumme/bmi585hmumme")
 install.packages("tidyverse")
 install.packages("dplyr")
 ```
-Requires R version > 4.1 due to use of new pipe operator (|>).
+Requires R version > 4.1 due to use of new pipe operator ```|>```
 ### Demo:
 Example uses for each function in the package are located in examples.Rmd or examples.html
