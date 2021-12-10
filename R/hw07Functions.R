@@ -19,7 +19,7 @@ minimumN = function(d) {
 #' @return p-value from ChiSquare Test of Homogenity between data in columns x and y of tib
 #' @export
 #' @examples
-#' data = tibble("sex" = c(1,0,1),"group" = c("A","B","C"), "age" = c(40,15,33), "height" = c(63, 70, 68))
+#' data = tibble::tibble("sex" = c(1,0,1),"group" = c("A","B","C"), "age" = c(40,15,33), "height" = c(63, 70, 68))
 #' 
 #' chiSquareCounts(data, "sex", "group")
 #' chiSquareCounts(data, "age", "height")
