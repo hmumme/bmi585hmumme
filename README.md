@@ -1,6 +1,8 @@
 # bmi585hmumme
 BMI 585 - Final Project
 
+Hope Mumme (hmumme@emory.edu)
+
 ### Function Descriptions:
 #### newFunctions.R
 - unscale(x) - unscale a numerical object from scale() function
