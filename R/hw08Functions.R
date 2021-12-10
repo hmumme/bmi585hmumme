@@ -2,6 +2,7 @@
 #'
 #' @param p vector of unadjusted p-values
 #' @return logical vector showing which values from p are statistically significant after Bonferroni-Holm Adjustment (assuming alpha = 0.05)
+#' @export
 #' @examples
 #' bhAdjust(c(0.0025, 0.0050, 0.0075, 0.0100, 0.0125))
 #' bhAdjust(c(0.05, 0.0005, 0.01, 0.0225, 0.025))
@@ -15,6 +16,7 @@ bhAdjust = function(p) {
 #'
 #' @param p vector of unadjusted p-values
 #' @return logical vector showing which values from p are statistically significant after FDR Adjustment (assuming alpha = 0.05)
+#' @export
 #' @examples
 #' fdrAdjust(c(0.0025, 0.0050, 0.0075, 0.0100, 0.0125))
 #' fdrAdjust(c(0.05, 0.0005, 0.01, 0.0225, 0.025))

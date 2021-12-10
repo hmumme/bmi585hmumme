@@ -2,6 +2,7 @@
 #'
 #' @param d target effect size 
 #' @return minimum number of samples needed to achieve effect size d and power = 0.8
+#' @export
 #' @examples
 #' minimumN(1.3)
 #' minimumN(0.5)
@@ -16,6 +17,7 @@ minimumN = function(d) {
 #' @param x column x of tib, variable 1 of comparison 
 #' @param y column y of tib, variable 2 of comparison
 #' @return p-value from ChiSquare Test of Homogenity between data in columns x and y of tib
+#' @export
 #' @examples
 #' data = tibble("sex" = c(1,0,1),"group" = c("A","B","C"), "age" = c(40,15,33), "height" = c(63, 70, 68))
 #' 
@@ -56,6 +58,7 @@ chiSquareCounts = function(tib, x, y) {
 #' @param n1 number of samples in group 1
 #' @param n2 number of samples in group 2
 #' @return estimate of post hoc power from 1000 simulations. formula: power estimate = # statistically significant simulations / total # of simulations
+#' @export
 #' @examples
 #' postHocPower(d = 1, n1 = 100, n2 = 90)
 #' postHocPower(d = 0.5, n1 = 20, n2 = 22)

@@ -3,6 +3,7 @@
 #' @param pred number or boolean vector of predicted values (0 or F = negative, 1 or T = positive)
 #' @param truth number or boolean vector of true values (0 or F = negative, 1 or T = positive)
 #' @return The sensitivity, formula: sensitivity = # True Positives / (# True Positives + # False Negatives)
+#' @export
 #' @examples
 #' sensitivity(c(0,1,0),c(1,1,1))
 #' sensitivity(c(1,1,1),c(1,1,0))
@@ -35,6 +36,7 @@ sensitivity = function(pred, truth) {
 #' @param pred number or boolean vector of predicted values (0 or F = negative, 1 or T = positive)
 #' @param truth number or boolean vector of true values (0 or F = negative, 1 or T = positive)
 #' @return The specificity, formula: specificity = # True Negatives / (# True Negatives + # False Positives)
+#' @export
 #' @examples
 #' specificity(c(0,1,0),c(1,0,1))
 #' specificity(c(1,1,1),c(1,0,0))
@@ -66,6 +68,7 @@ specificity = function(pred, truth) {
 #' @param pred number or boolean vector of predicted values (0 or F = negative, 1 or T = positive)
 #' @param truth number or boolean vector of true values (0 or F = negative, 1 or T = positive)
 #' @return The accuracy, formula: accuracy = (# True Positives + # True Negatives) / (# All Positives + # All Negatives)
+#' @export
 #' @examples
 #' accuracy(c(0,1,0),c(1,0,1))
 #' accuracy(c(1,1,1),c(1,0,0))
@@ -100,6 +103,7 @@ accuracy = function(pred, truth) {
 #' @param pred number or boolean vector of predicted values (0 or F = negative, 1 or T = positive)
 #' @param truth number or boolean vector of true values (0 or F = negative, 1 or T = positive)
 #' @return The PPV, formula: PPV = # True Positives / (# True Positives + # False Positives)
+#' @export
 #' @examples
 #' ppv(c(0,1,0),c(1,0,1))
 #' ppv(c(1,1,1),c(1,0,0))
@@ -131,6 +135,7 @@ ppv = function(pred, truth) {
 #' @param pred number or boolean vector of predicted values (0 or F = negative, 1 or T = positive)
 #' @param truth number or boolean vector of true values (0 or F = negative, 1 or T = positive)
 #' @return The F1 Score, formula: F1 = 2 * (precision * recall) / (precision + recall)
+#' @export
 #' @examples
 #' f1(c(0,1,0),c(1,0,1))
 #' f1(c(1,1,1),c(1,0,0))

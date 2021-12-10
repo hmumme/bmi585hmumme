@@ -2,6 +2,7 @@
 #'
 #' @param x numerical object from scale() with or without attributes
 #' @return un-scaled version of x. reversed centering/scaling of x, if any
+#' @export
 #' @examples
 #' xS = scale(matrix(1:10, ncol = 2))
 #' unscale(x = xS)
@@ -28,6 +29,7 @@ unscale = function(x) {
 #' @param x numerical dataframe, matrix, or tibble
 #' @param npc number of Principle Components (PCs) to use in approximation
 #' @return approximation of data x based on npc principal components
+#' @export
 #' @examples 
 #' x = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3)
 #' pcApprox(x, npc = 1)
@@ -73,6 +75,7 @@ pcApprox = function(x, npc) {
 #' 
 #' @param x numerical dataframe, or tibble
 #' @return plotting object for lollipop plots of principal components of x
+#' @export
 #' @examples 
 #' x = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3)
 #' plot = pcLollipop(x)

@@ -3,6 +3,7 @@
 #' @param t t-test statistic
 #' @param n sample size
 #' @return p-value, or area under the t-density calculated from t statistic and sample size 
+#' @export
 #' @examples
 #' twoSidedT(3, 5)
 #' twoSidedT(0.2, 2)
@@ -16,6 +17,7 @@ twoSidedT = function(t,n) {
 #'
 #' @param z z-score
 #' @return p-value, or area under the z-density calculated from z score
+#' @export
 #' @examples
 #' twoSidedZ(3)
 #' twoSidedZ(0.2)
@@ -29,6 +31,7 @@ return(p)
 #' @param x vector of values of length n
 #' @param g vector of group designations (0 or 1) of length n, corresponding to vector x
 #' @return effect size, or Cohen's d. formula: d = |mean0 - mean1| / sqrt((sd0^2 + sd1^2)/2)
+#' @export
 #' @examples
 #' effectSize(c(1.42, 8.10, 9.22), c(0,1,1))
 #' effectSize(c(1.42, 8.10, 9.22, 20.92, 5.67, 0.45), c(0,0,1,1,0))
@@ -55,6 +58,7 @@ effectSize = function(x,g) {
 #'
 #' @param x vector of values of length n
 #' @param y vector of values of length n
+#' @export
 #' @return returns vector of length 5 with Welch's T statistic, degrees of freedom, p-value, mean of group x, and mean of group y
 #' @examples
 #' welchT(c(1.42, 8.10, 9.22), c(10.4, 4.52, 3.44))

@@ -3,6 +3,7 @@
 #' @param pred numerical vector of predicted values
 #' @param truth numerical vector of true values
 #' @return R-squared value as a measure of model fitness. formula: R^2 = 1 - RSS/TSS
+#' @export
 #' @examples 
 #' yTrue = c(0,1,1,1)
 #' 
@@ -35,6 +36,7 @@ r2 = function(pred, truth) {
 #' @param truth numerical vector of true values
 #' @param d number of predictor variables used in model
 #' @return Adjusted r-squared value as a measure of model fitness. formula: Adjusted R^2 = 1 - ((RSS/(n-d-1))/(TSS/(n-1)))
+#' @export
 #' @examples 
 #' yTrue = c(0,1,1,1)
 #' 

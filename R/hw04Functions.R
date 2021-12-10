@@ -2,6 +2,7 @@
 #'
 #' @param n number of samples to take from the standard normal distribution
 #' @return 2 vectors in matrix columns 1 and 2. x1 and x2 are independent, normally distributed random vectors with n values each
+#' @export 
 #' @examples
 #' boxMuller(5)
 #' boxMuller(100)
