@@ -102,7 +102,7 @@ pcLollipop = function(x) {
   df_long = df |> tidyr::pivot_longer(!Variable, names_to = "PC", values_to = "value")
   
   # generate plot object
-  plot = ggplot2::ggplot(df_long, ggplot2::aes(x = Variable, y = value)) + ggplot2::geom_point(aes(color = PC)) + 
+  plot = ggplot2::ggplot(df_long, ggplot2::aes(x = Variable, y = value)) + ggplot2::geom_point(ggplot2::aes(color = PC)) + 
     ggplot2::geom_segment(ggplot2::aes(x=Variable, xend=Variable, y=0, yend=value, color = PC)) + 
     ggplot2::facet_grid(PC ~ ., scales = "free_y") + ggplot2::theme(legend.position = "none")
   return(plot)
