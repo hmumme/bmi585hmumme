@@ -1,0 +1,203 @@
+---
+title: "BMI 585 - Final Project"
+author: "Hope Mumme"
+date: "12/9/2021"
+output: html_document
+---
+
+This Markdown file contains example uses for all the functions in the package bmi585hmumme. You can download the package with the following command in the R Console. Uncomment the following if you have not installed the package to your system. 
+
+```{r Install}
+#devtools::install_github("hmumme/bmi585hmumme")
+```
+
+Load the package and set up the Markdown file:
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(bmi585hmumme)
+```
+
+The following functions are broken down by section; each section represents the assignment the function came from. These examples can also be found in the help documentation for each function; type ?functionName to retrieve this. 
+
+
+### newFunctions.R
+
+##### unscale(x)
+
+This function takes a numerical object from scale(), reverses the scaling and centering done (if any), and returns the un-scaled numerical object.
+
+```{r unscale}
+xS = scale(matrix(1:10, ncol = 2)) # scale a matrix
+unscale(x = xS) # un-scale to get the original matrix
+```
+
+##### pcApprox(x,npc)
+
+This function approximates x feature data using npc number of principle components.
+
+```{r pcApprox}
+x = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3) # feature data matrix
+pcApprox(x, npc = 1) # approximate using 1 principle component
+```
+
+##### pcLollipop(x)
+
+This function creates lollipop plots of all the principal component loadings in feature data x (must be numerical data frame or tibble). Each principle component will have its own plot of values for each variable in the data x. 
+
+```{r pcLollipop}
+x = data.frame(data = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3)) # feature data frame
+pcLollipop(x) # create lollipop plots
+```
+
+### quiz02Functions.R
+
+##### sensitivity(pred,truth)
+
+This function calculates the sensitivity from predicted and true vectors. These vectors can either be 0s (negatives) and 1s (positives) or boolean. 
+
+```{r sensitivity}
+sensitivity(c(0,1,0),c(1,1,1)) # calculates sensitivity
+```
+
+##### specificity(pred,truth)
+
+This function calculates the specificity from predicted and true vectors. These vectors can either be 0s (negatives) and 1s (positives) or boolean. 
+
+```{r specificity}
+specificity(c(0,1,1),c(0,0,1)) # calculates specificity
+```
+
+##### accuracy(pred,truth)
+
+This function calculates the accuracy from predicted and true vectors. These vectors can either be 0s (negatives) and 1s (positives) or boolean. 
+
+```{r accuracy}
+accuracy(c(0,1,1),c(1,1,1)) # calculates accuracy
+```
+
+##### ppv(pred,truth)
+
+This function calculates the PPV from predicted and true vectors. These vectors can either be 0s (negatives) and 1s (positives) or boolean. 
+
+```{r ppv}
+ppv(c(1,1,0),c(0,1,1)) # calculates PPV
+```
+
+##### f1(pred,truth)
+
+This function calculates the F1 score from predicted and true vectors. These vectors can either be 0s (negatives) and 1s (positives) or boolean. 
+
+```{r f1}
+f1(c(1,1,1),c(1,1,0)) # calculates f1 score
+```
+
+### hw04Functions.R
+
+##### boxMuller(n)
+
+This function use the Box-Muller transformation to generate 2 vectors of random, normally distributed n values.
+
+```{r boxMuller}
+boxMuller(5) # generates two random, normally distributed vectors with 5 values each
+```
+
+### hw06Functions.R
+
+##### twoSidedT(t,n)
+
+This function calculates the p-value from a two-sided t-test statistic and the number of samples n.
+
+```{r twoSidedT}
+twoSidedT(3, 5) # calculates p-value
+```
+
+##### twoSizedZ(z)
+
+This function calculates the p-value from a two-sided z score.
+
+```{r twoSidedZ}
+twoSidedZ(3) # calculates p-value
+```
+
+##### effectSize(x,g)
+
+This function calculates the effect size from vector of values x and grouping variable g.
+
+```{r effectSize}
+effectSize(c(1.42, 8.10, 9.22, 20.92, 5.67, 0.45), c(0,0,1,1,0)) # calculates effect size
+```
+
+##### welchT(x,y)
+
+This function performs a Welch's T test to compare the means of vector x and vector y. It will return a vector of length 5 with Welch's T statistic, degrees of freedom, p-value, mean of group x, and mean of group y.
+
+```{r welchT}
+welchT(c(1.42, 8.10, 9.22, 20.92, 5.67, 0.45), c(1.99, 8.09, 9.13, 9.10, 5.55, 0.11)) # calculate welch t-test statistics
+```
+
+### hw07Functions.R
+
+##### minimumN(d)
+
+This function finds the minimum number of samples needed for effect size d and power = 0.8, returns number of samples rounded up to nearest integer.
+
+```{r minimumN}
+minimumN(1.3) # calculate number of samples needed
+```
+
+##### chiSquareCounts(tib,x,y)
+
+This function performs a chi square test of homogeneity between data in columns x and y of tib. Returns a p-value.
+
+```{r chiSquareCounts}
+data = dplyr::tibble("sex" = c(1,0,1),"group" = c("A","B","C"), "age" = c(40,15,33), "height" = c(63, 70, 68)) # create data
+chiSquareCounts(data, "age", "height") # perform test
+```
+
+##### postHocPower(d,n1,n2)
+
+This function estimates post hoc power from effect size and number of samples using 1000 simulations. 
+
+```{r postHocPower}
+postHocPower(d = 0.5, n1 = 20, n2 = 22) # estimate power
+```
+
+### hw08Functions.R
+
+##### bhAdjust(p)
+
+This function tests for significant p-values using Bonferroni-Holm adjustment. Returns logical vector showing which p-values are statistically significant after the BH adjustment. 
+
+```{r bhAdjust}
+bhAdjust(c(0.05, 0.0005, 0.01, 0.0225, 0.025)) # find which p-values are significant after BH adjustment
+```
+
+##### fdrAdjust(p)
+
+This function tests for significant p-values using FDR adjustment. Returns logical vector showing which p-values are statistically significant after the FDR adjustment. 
+
+```{r fdrAdjust}
+fdrAdjust(c(0.05, 0.0005, 0.01, 0.0225, 0.025)) # find which p-values are significant after fdr adjustment
+```
+
+### hw11Functions.R
+
+##### r2(pred,truth) 
+
+This function calculates the R-Squared value from two numerical vectors of predicted/true values.
+
+```{r r2}
+yTrue = c(0,1,1,1) # true values
+r2(pred = c(0,1,0.7,1), truth = yTrue) # find R^2
+```
+
+##### adjR2(pred,truth)
+
+This function calculates the adjusted R-Squared value from two numerical vectors of predicted/true values and the number of predictors used d.
+
+```{r adjR2}
+yTrue = c(0,1,1,1) # true values
+adjR2(pred = c(0,1,0.7,1), truth = yTrue, d = 2) # find adjusted R^2
+```
+
