@@ -16,6 +16,6 @@ plotting object for lollipop plots of principal components of x
 Create Lollipop Plots of Principal Component Loadings
 }
 \examples{
-x = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3)
+x = data.frame(data = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3))
 plot = pcLollipop(x)
 }

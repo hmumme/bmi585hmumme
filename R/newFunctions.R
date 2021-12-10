@@ -77,7 +77,7 @@ pcApprox = function(x, npc) {
 #' @return plotting object for lollipop plots of principal components of x
 #' @export
 #' @examples 
-#' x = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3)
+#' x = data.frame(data = matrix(c(4,5,2,10,2,8,4,5,6), ncol = 3))
 #' plot = pcLollipop(x)
 pcLollipop = function(x) {
   # get principal components of x
@@ -102,9 +102,9 @@ pcLollipop = function(x) {
   df_long = df |> tidyr::pivot_longer(!Variable, names_to = "PC", values_to = "value")
   
   # generate plot object
-  plot = ggplot(df_long, aes(x = Variable, y = value)) + geom_point(aes(color = PC)) + 
-    geom_segment(aes(x=Variable, xend=Variable, y=0, yend=value, color = PC)) + 
-    facet_grid(PC ~ ., scales = "free_y") + theme(legend.position = "none")
+  plot = ggplot::ggplot(df_long, aes(x = Variable, y = value)) + ggplot::geom_point(aes(color = PC)) + 
+    ggplot::geom_segment(aes(x=Variable, xend=Variable, y=0, yend=value, color = PC)) + 
+    ggplot::facet_grid(PC ~ ., scales = "free_y") + ggplot::theme(legend.position = "none")
   return(plot)
 }
 
