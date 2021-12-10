@@ -30,12 +30,9 @@ BMI 585 - Final Project
 - r2(pred,truth) - calculate R-Squared
 - adjR2(pred,truth) - calculate Adjusted R-Squared
 
-### R Package Installation:
+### R Package and Requirements Installation:
 ```
 devtools::install_github("hmumme/bmi585hmumme")
-```
-### To install required repositories:
-```
 install.packages("tidyverse")
 ```
 ### Demo:
